@@ -2,23 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This class manages player input on a per player basis. 
+/// This class is used by the PlayerControler class to provide Input information. 
+/// Inherit this class to define player inputs. Support for all 16 players in Unity Supported. 
+/// An Example for Player 1 is provided in this class. 
+/// </summary>
 public class InputPoller : MonoBehaviour {
 
+    /// <summary>
+    /// Internal Static Reference 
+    /// </summary>
     protected static InputPoller _Self;
 
-    public InputPoller Self
+    /// <summary>
+    /// Public Interface to Applications's Single Reference of this class. 
+    /// </summary>
+    public static InputPoller Self
     {
         get { return _Self; } 
     }
 
-    void Awake()
+    /// <summary>
+    /// Initalizes the Sington Reference. 
+    /// </summary>
+    private void Awake()
     {
+        if (_Self)
+        {
+            Debug.LogError("Multiple Input Poller Classes Exist. This is a singleton object and only one should exist EVER.");
+            return; 
+        }
         _Self = this; 
-    }
-
-    public static InputPoller GetReference()
-    {
-        return _Self; 
     }
 
     public virtual InputState GetPlayerInput(int PlayerNumber)
@@ -49,8 +64,13 @@ public class InputPoller : MonoBehaviour {
         return new InputState();
     }
 
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer1Input()
     {
+        // Example Input binding. 
         InputState IS = InputState.GetBlankState();
         IS.AddAxis("Horizontal", Input.GetAxis("Horizontal"));
         IS.AddAxis("Vertical", Input.GetAxis("Vertical"));
@@ -61,13 +81,21 @@ public class InputPoller : MonoBehaviour {
         return IS;
     }
 
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer2Input()
     {
         InputState IS = InputState.GetBlankState();
-
+        
         return IS;
     }
 
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer3Input()
     {
         InputState IS = InputState.GetBlankState();
@@ -75,6 +103,10 @@ public class InputPoller : MonoBehaviour {
         return IS;
     }
 
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer4Input()
     {
         InputState IS = InputState.GetBlankState();
@@ -82,6 +114,10 @@ public class InputPoller : MonoBehaviour {
         return IS;
     }
 
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer5Input()
     {
         InputState IS = InputState.GetBlankState();
@@ -89,18 +125,32 @@ public class InputPoller : MonoBehaviour {
         return IS;
     }
 
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer6Input()
     {
         InputState IS = InputState.GetBlankState();
 
         return IS;
     }
+
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer7Input()
     {
         InputState IS = InputState.GetBlankState();
 
         return IS;
     }
+
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer8Input()
     {
         InputState IS = InputState.GetBlankState();
@@ -108,6 +158,10 @@ public class InputPoller : MonoBehaviour {
         return IS;
     }
 
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer9Input()
     {
         InputState IS = InputState.GetBlankState();
@@ -115,6 +169,10 @@ public class InputPoller : MonoBehaviour {
         return IS;
     }
 
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer10Input()
     {
         InputState IS = InputState.GetBlankState();
@@ -122,6 +180,10 @@ public class InputPoller : MonoBehaviour {
         return IS;
     }
 
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer11Input()
     {
         InputState IS = InputState.GetBlankState();
@@ -129,6 +191,10 @@ public class InputPoller : MonoBehaviour {
         return IS;
     }
 
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer12Input()
     {
         InputState IS = InputState.GetBlankState();
@@ -136,6 +202,10 @@ public class InputPoller : MonoBehaviour {
         return IS;
     }
 
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer13Input()
     {
         InputState IS = InputState.GetBlankState();
@@ -143,6 +213,10 @@ public class InputPoller : MonoBehaviour {
         return IS;
     }
 
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer14Input()
     {
         InputState IS = InputState.GetBlankState();
@@ -150,6 +224,10 @@ public class InputPoller : MonoBehaviour {
         return IS;
     }
 
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer15Input()
     {
         InputState IS = InputState.GetBlankState();
@@ -157,6 +235,10 @@ public class InputPoller : MonoBehaviour {
         return IS;
     }
 
+    /// <summary>
+    /// Input Setup Method for Specific Player. Add Implementation in Inherited Class for Application
+    /// </summary>
+    /// <returns>InputState for Requested Player</returns>
     public virtual InputState GetPlayer16Input()
     {
         InputState IS = InputState.GetBlankState();
