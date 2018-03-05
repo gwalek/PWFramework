@@ -32,7 +32,7 @@ public class AIController : Controller
         }
 
         agent = p.gameObject.AddComponent<NavMeshAgent>();
-        if (!p)
+        if (!agent)
         {
             LOG_ERROR("Could not Add NavMeshAgent to Pawn");
             return false;
