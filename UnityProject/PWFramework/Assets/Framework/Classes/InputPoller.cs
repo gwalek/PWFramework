@@ -8,7 +8,7 @@ using UnityEngine;
 /// Inherit this class to define player inputs. Support for all 16 players in Unity Supported. 
 /// An Example for Player 1 is provided in this class. 
 /// </summary>
-public class InputPoller : MonoBehaviour {
+public class InputPoller : Info {
 
     /// <summary>
     /// Internal Static Reference 
