@@ -9,6 +9,12 @@ public class AIC_PathRunner : AIController {
     public GameObject[] PathPoints;
     int PathPointIndex = 0;
 
+    protected override void Start()
+    {
+        UseSpawnSystem = false; 
+        base.Start(); 
+    }
+
     protected override void DefaultState_Enter()
     {
         Pawn p = MyPawn.GetComponent<Pawn>(); 

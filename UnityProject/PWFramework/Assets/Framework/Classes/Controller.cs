@@ -5,7 +5,8 @@ using UnityEngine;
 public class Controller : Info {
 
     public bool IsAI = false;
-    public bool IsHuman = false; 
+    public bool IsHuman = false;
+    public bool UseSpawnSystem = true; 
 
     public static bool LogPossessionFailures = true;
     public bool StartWithSpectator = true; 
@@ -33,6 +34,11 @@ public class Controller : Info {
 
     protected virtual void Start()
     {
+        if (!UseSpawnSystem)
+        {
+            return; 
+        }
+
         // Create Spectator Prefab
         if (SpectatorPreFab)
         {
