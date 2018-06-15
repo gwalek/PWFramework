@@ -5,14 +5,14 @@ using UnityEngine;
 public class MidPointCalculator : MonoBehaviour {
 
     public GameObject Camera;
-    float startingY; 
+    public float YHeight; 
     public GameObject Sphere; 
     public List<GameObject> Pawns;
     public List<Vector3> PawnLocations; 
 
 	// Use this for initialization
 	void Start () {
-        startingY = Camera.transform.position.y; 
+        YHeight = Camera.transform.position.y; 
 
 
     }
@@ -25,7 +25,7 @@ public class MidPointCalculator : MonoBehaviour {
 
         Camera.transform.position = Sphere.transform.position;
         Vector3 location = Camera.transform.position;
-        location.y = startingY;
+        location.y = YHeight;
         Camera.transform.position = location; 
     }
 
